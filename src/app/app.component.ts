@@ -10,6 +10,7 @@ import { UnlessDirective } from './unless.directive';
 })
 export class AppComponent {
   color: string;
+  subtitle = '(v1)';
   private switch = true;
   private value = 100;
   private names = ['Rahul', 'Sai Kumari', 'Aarthi', 'Harun Kumar'];
