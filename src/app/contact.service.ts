@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 export class Contact {
   constructor(public id: number, public name: string) { }
 }
- 
+
 const CONTACTS: Contact[] = [
   new Contact(21, 'Sam Spade'),
   new Contact(22, 'Nick Danger'),
@@ -20,7 +20,7 @@ export class ContactService {
       setTimeout(() => { resolve(CONTACTS); }, FETCH_LATENCY);
     });
   }
- 
+
   getContact(id: number | string) {
     return this.getContacts()
       .then(heroes => heroes.find(hero => hero.id === +id));

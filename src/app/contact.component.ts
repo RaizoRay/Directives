@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact, ContactService } from './contact.service';
-import { UserService }    from './user.service';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'app-contact',
@@ -29,11 +29,11 @@ import { UserService }    from './user.service';
     .ng-valid[required] {
       border-left: 5px solid #42A948; /* green */
     }
-    
+
     .ng-invalid {
       border-left: 5px solid #a94442; /* red */
     }
-    
+
     .alert {
       padding: 15px;
       margin: 8px 0;
@@ -45,7 +45,7 @@ import { UserService }    from './user.service';
       background-color: #f2dede;
       border-color: #ebccd1;
     }
-    
+
     .msg {
       color: blue;
       background-color: whitesmoke;
@@ -58,14 +58,14 @@ import { UserService }    from './user.service';
 export class ContactComponent implements OnInit {
 contact:  Contact;
   contacts: Contact[];
- 
+
   msg = 'Loading contacts ...';
   userName = '';
- 
+
   constructor(private contactService: ContactService, userService: UserService) {
     this.userName = userService.userName;
   }
- 
+
   ngOnInit() {
     this.contactService.getContacts().then(contacts => {
       this.msg = '';
@@ -73,24 +73,24 @@ contact:  Contact;
       this.contact = contacts[0];
     });
   }
- 
+
   next() {
     let ix = 1 + this.contacts.indexOf(this.contact);
     if (ix >= this.contacts.length) { ix = 0; }
     this.contact = this.contacts[ix];
   }
- 
+
   onSubmit() {
     // POST-DEMO TODO: do something like save it
     this.displayMessage('Saved ' + this.contact.name);
   }
- 
+
   newContact() {
     this.displayMessage('New contact');
     this.contact = {id: 42, name: ''};
     this.contacts.push(this.contact);
   }
- 
+
   /** Display a message briefly, then remove it. */
   displayMessage(msg: string) {
     this.msg = msg;
