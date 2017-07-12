@@ -9,7 +9,6 @@ import { UnlessDirective } from './unless.directive';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  color: string;
   subtitle = '(v1)';
   private switch = true;
   private value = 100;
